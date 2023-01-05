@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>issued Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <div class="container">
+        <h1>Issued BOOks</h1>
+        <hr>
+        <a class="btn btn-primary" href="/" role="button">Home</a>
+        <a class="btn btn-success" href="/avl_book" role="button">All Books</a>
+        <a class="btn btn-primary" href="/issue_book" role="button">Issued book</a>
+        <a class="btn btn-primary" href="/issue_book_student" role="button">Issue a Book to Student </a>
+        
+    </div>
+
+    <div class="container mt-5">
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Sr.no</th>
+                <th scope="col">Name</th>
+                <th scope="col">Father Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">Book</th>
+                <th scope="col">Author</th>
+                <th scope="col">Issue date</th> 
+                <th scope="col">Delete</th> 
+                
+              </tr>
+            </thead>
+            {% for stu in issue_book %}
+            <tbody>
+                
+              <tr>
+                <th scope="row">{{stu.id}}</th>
+                
+                <td>{{stu.stu_name}}</td>
+                <td>{{stu.father_name}}</td>
+                <td>{{stu.phone}}</td>
+                <td>{{stu.address}}</td>
+                <td>{{stu.book_name}}</td>
+                <td>{{stu.author_name}}</td>
+                <td>{{stu.issue_date}}</td>
+                <form action="/delete" method="post">
+                    {% csrf_token %}
+                <td><button type="submit" class="btn btn-light" for="stu_id" id="stu_id"   name="stu_id" value="{{stu.id}}"><a href="/delete/{{stu.id}}">Delete</a></button></td>
+            </form>
+              </tr>
+              
+            </tbody>
+            {%endfor%}
+          </table>
+    
+    
+        </div>
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+</body>
+</html>

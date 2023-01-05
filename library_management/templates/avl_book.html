@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>available books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <div class="container">
+        <h1>All available Books</h1>
+        <hr>
+        <a class="btn btn-primary" href="/" role="button">Home</a>
+        <a class="btn btn-success" href="/avl_book" role="button">ALL available Books</a>
+        <a class="btn btn-primary" href="/issue_book" role="button">Issued Book</a>
+        <a class="btn btn-primary" href="/issue_book_student" role="button">Issue a Book to Student</a>
+
+    </div>
+
+    {% csrf_token %}
+
+<div class="container mt-5" style="height: 450px; overflow:scroll">
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Sr.no</th>
+            <th scope="col">Book</th>
+            <th scope="col">Author</th>
+            
+          </tr>
+        </thead>
+        {% for book in all_book %}
+        <tbody>
+            
+          <tr>
+            
+            <th scope="row">{{book.id}}</th>
+            
+            <td>{{book.Book.book_name}}</td>
+            <td>{{book.author_name}}</td>
+            
+          </tr>
+          
+        </tbody>
+        {%endfor%}
+      </table>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+</body>
+</html>
